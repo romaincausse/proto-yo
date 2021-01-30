@@ -3,4 +3,5 @@ export class Comment {
   date: string;
   author: string;
   content: string;
+  serieId: number;
 }

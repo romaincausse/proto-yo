@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {seriesData} from '../data/series';
 import {Subject} from 'rxjs';
 import {Serie} from '../models/serie';
 
@@ -10,11 +9,31 @@ export class SerieService {
 
   seriesSubject = new Subject<Serie[]>();
 
-  private series = seriesData;
+  private series: Serie[];
 
-  constructor() { }
+  constructor() {
+    this.series = [{
+      id: 1,
+      name: 'abc',
+      review: 'la revue',
+      seasonsNumber: 10,
+      photo: '',
+      description: 'description 1',
+      firstReleaseDate: '10/01/2014'
+    },
+      {
+        id: 2,
+        name: 'def',
+        review: 'une autre revue',
+        seasonsNumber: 4,
+        photo: '',
+        description: 'description 3',
+        firstReleaseDate: '10/01/2016'
+      }
+    ];
+  }
 
-  emitAppareilSubject(): void {
+  emitSerieSubject(): void {
     this.seriesSubject.next(this.series.slice());
   }
 }

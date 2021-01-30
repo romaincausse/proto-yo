@@ -4,13 +4,18 @@
     <th scope="col">Id</th>
     <th scope="col">Nom</th>
     <th scope="col">Date de mise en ligne</th>
+    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let serie of series">
+  <tr *ngFor="let serie of series"
+  (click)="onClickSerie(serie.id)"
+  style="cursor: pointer">
     <th scope="row">{{serie.id}}</th>
     <td>{{serie.name}}</td>
     <td>{{serie.firstReleaseDate}}</td>
+    <td>{{serie.id}}</td>
+    <td><a [routerLink]="['serie', 'edit', serie.id]">Editer</a></td>
   </tr>
   </tbody>
 </table>

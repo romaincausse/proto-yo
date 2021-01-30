@@ -8,5 +8,5 @@ export class Serie {
   description: string;
   review: string;
   photo: string;
-  comments: Comment[];
+  comments?: Comment[];
 }
