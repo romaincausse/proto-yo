@@ -16,9 +16,10 @@ export class CommentListComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.commentService.getCommentsBySerieId(this.serieId).subscribe((comments) => {
+    this.commentService.commentsBySerieSubject.subscribe((comments) => {
       this.comments = comments;
     });
+    this.commentService.emitCommentBySerieSubject(this.serieId);
   }
 
 }

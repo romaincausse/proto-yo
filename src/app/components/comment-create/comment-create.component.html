@@ -1,0 +1,10 @@
+<form #commentForm="ngForm" (ngSubmit)="onSubmit(commentForm)" class="mt-4">
+  <h4>Ajouter une critique</h4>
+  <div class="form-group">
+    <label for="author">Votre nom</label>
+    <input class="form-control" id="author" name="author" ngModel required type="text">
+    <label for="critique">Votre critique</label>
+    <textarea class="form-control" id="critique" name="content" ngModel required rows="3"></textarea>
+  </div>
+  <button [disabled]="!commentForm.valid" class="btn btn-primary" type="submit">Ajouter la critique</button>
+</form>

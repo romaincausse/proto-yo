@@ -9,7 +9,8 @@
       </div>
       <div class="col-auto d-none d-lg-block">
 
-        <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img" focusable="false" height="250" preserveAspectRatio="xMidYMid slice"
+        <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img" focusable="false" height="250"
+             preserveAspectRatio="xMidYMid slice"
              role="img" width="200" xmlns="http://www.w3.org/2000/svg"><title>
           Placeholder</title>
           <rect fill="#55595c" height="100%" width="100%"></rect>
@@ -24,5 +25,11 @@
 <div class="row">
   <div class="col-12">
     <app-comment-list [serieId]="serieId"></app-comment-list>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <app-comment-create [serieId]="serieId"></app-comment-create>
   </div>
 </div>
