@@ -22,4 +22,7 @@ export class CommentListComponent implements OnInit {
     this.commentService.emitCommentBySerieSubject(this.serieId);
   }
 
+  deleteComment(comment: Comment): void {
+    this.commentService.deleteComment(comment);
+  }
 }

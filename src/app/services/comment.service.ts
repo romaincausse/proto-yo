@@ -62,6 +62,16 @@ export class CommentService {
     this.emitCommentBySerieSubject(serieId);
   }
 
+  deleteComment(comment: Comment): void {
+    const index = this.comments.findIndex((c) => {
+      return c.id === comment.id;
+    });
+    if (index > -1) {
+      this.comments.splice(index, 1);
+    }
+    this.emitCommentBySerieSubject(comment.serieId);
+  }
+
   getLastId(): number {
     let lastId = 0;
     this.comments.forEach((comment) => {
