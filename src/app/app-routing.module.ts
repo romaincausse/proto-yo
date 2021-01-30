@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'serie/:id', component: SerieViewComponent },
   {path: 'serie/create', component: SerieEditComponent },
   {path: 'serie/edit/:id', component: SerieEditComponent },
-  {path: '**', component: PageNotFoundComponentComponent}
+  {path: '404', component: PageNotFoundComponentComponent },
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

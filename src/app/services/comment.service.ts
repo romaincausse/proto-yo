@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {Comment} from '../models/comment';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class CommentService {
           id: 2,
           author: 'tata',
           content: 'contenu commentaire n 2',
-          date: '14/10/2020',
+          date: '05/20/2020',
           serieId: 1
         },
       {
@@ -38,7 +38,7 @@ export class CommentService {
         id: 4,
         author: 'tata',
         content: 'contenu commentaire n 5',
-        date: '14/10/2020',
+        date: '07/10/2020',
         serieId: 2
       }
     ];
@@ -46,5 +46,9 @@ export class CommentService {
 
   emitCommentSubject(): void {
     this.commentsSubject.next(this.comments.slice());
+  }
+
+  getCommentsBySerieId(serieId: number): Observable<Comment[]> {
+    return of(this.comments.filter((comment) => comment.serieId === serieId));
   }
 }

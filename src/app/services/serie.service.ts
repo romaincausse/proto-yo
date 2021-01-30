@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {Serie} from '../models/serie';
+import {findIndex} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class SerieService {
 
   emitSerieSubject(): void {
     this.seriesSubject.next(this.series.slice());
+  }
+
+  getSerieById(id: number): Observable<Serie|null> {
+    return of(this.series.find((serie) => serie.id === id) || null);
   }
 }

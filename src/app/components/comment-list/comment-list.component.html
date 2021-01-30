@@ -1,0 +1,19 @@
+<h3 class="my-2">Critiques</h3>
+
+<div *ngFor="let comment of comments" class="card">
+  <div class="card-body">
+    <div class="card-title">{{comment?.author}}</div>
+    <div class="mb-1 text-muted">{{comment?.date|date:'shortDate'}}</div>
+    <p class="card-text">
+      {{comment.content}}
+    </p>
+  </div>
+</div>
+
+<form class="mt-4">
+  <div class="form-group">
+    <label for="critique">Ajouter une critique</label>
+    <textarea class="form-control" id="critique" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter la critique</button>
+</form>
