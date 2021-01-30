@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {Comment} from '../models/comment';
 
 @Injectable({
@@ -7,9 +7,7 @@ import {Comment} from '../models/comment';
 })
 export class CommentService {
 
-  commentsBySerieSubject = new Subject<Comment[]>();
-
-  // commentsSubject = new Subject<Comment[]>();
+  commentsBySerieSubject: BehaviorSubject<Comment[]>;
 
   private comments: Comment[];
 
@@ -44,6 +42,8 @@ export class CommentService {
         serieId: 2
       }
     ];
+
+    this.commentsBySerieSubject = new BehaviorSubject<Comment[]>(null);
   }
 
   emitCommentBySerieSubject(serieId: number): void {

@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Observable, of, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {Serie} from '../models/serie';
-import {findIndex} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SerieService {
 
-  seriesSubject = new Subject<Serie[]>();
+  seriesSubject: BehaviorSubject<Serie[]>;
 
   private series: Serie[];
 
@@ -32,6 +31,7 @@ export class SerieService {
         firstReleaseDate: '2018-01-01'
       }
     ];
+    this.seriesSubject = new BehaviorSubject<Serie[]>(this.series);
   }
 
   emitSerieSubject(): void {
