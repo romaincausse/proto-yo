@@ -8,8 +8,8 @@ import {SerieEditComponent} from './components/serie-edit/serie-edit.component';
 
 const routes: Routes = [
   {path: '', component: SerieListeComponent},
-  {path: 'serie/:id', component: SerieViewComponent},
   {path: 'serie/create', component: SerieEditComponent},
+  {path: 'serie/:id', component: SerieViewComponent},
   {path: 'serie/edit/:id', component: SerieEditComponent},
   {path: '404', component: PageNotFoundComponent},
   {path: '**', redirectTo: '404'}

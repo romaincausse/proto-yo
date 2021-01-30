@@ -19,28 +19,28 @@ export class CommentService {
         id: 1,
         author: 'toto',
         content: 'contenu commentaire',
-        date: '12/10/2020',
+        date: '2020-02-04',
         serieId: 1
       },
       {
         id: 2,
         author: 'tata',
         content: 'contenu commentaire n 2',
-        date: '05/20/2020',
+        date: '2020-02-04',
         serieId: 1
       },
       {
         id: 3,
         author: 'toto',
         content: 'contenu commentaire 3',
-        date: '12/10/2020',
+        date: '2020-02-04',
         serieId: 2
       },
       {
         id: 4,
         author: 'tata',
         content: 'contenu commentaire n 5',
-        date: '07/10/2020',
+        date: '2020-02-04',
         serieId: 2
       }
     ];

@@ -3,7 +3,7 @@
 <div *ngFor="let comment of comments" class="card">
   <div class="card-body">
     <div class="card-title">{{comment?.author}}</div>
-    <div class="mb-1 text-muted">{{comment?.date|date:'shortDate'}}</div>
+    <div class="mb-1 text-muted">{{comment?.date|date:'mediumDate'}}</div>
     <p class="card-text">
       {{comment.content}}
     </p>

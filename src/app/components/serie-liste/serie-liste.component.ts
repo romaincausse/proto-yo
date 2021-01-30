@@ -28,6 +28,10 @@ export class SerieListeComponent implements OnInit, OnDestroy {
     this.router.navigate(['serie', id]);
   }
 
+  deleteSerie(serie: Serie): void {
+    this.serieService.deleteSerie(serie);
+  }
+
   ngOnDestroy(): void {
     this.seriesSubscription.unsubscribe();
   }

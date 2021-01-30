@@ -13,7 +13,8 @@ export class CommentListComponent implements OnInit {
 
   @Input() serieId: number;
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService) {
+  }
 
   ngOnInit() {
     this.commentService.commentsBySerieSubject.subscribe((comments) => {

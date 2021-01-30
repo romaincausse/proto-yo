@@ -20,7 +20,7 @@ export class SerieService {
       seasonsNumber: 10,
       photo: '',
       description: 'description 1',
-      firstReleaseDate: '10/01/2014'
+      firstReleaseDate: '2020-02-04'
     },
       {
         id: 2,
@@ -29,7 +29,7 @@ export class SerieService {
         seasonsNumber: 4,
         photo: '',
         description: 'description 3',
-        firstReleaseDate: '10/01/2016'
+        firstReleaseDate: '2018-01-01'
       }
     ];
   }
@@ -40,5 +40,60 @@ export class SerieService {
 
   getSerieById(id: number): Observable<Serie|null> {
     return of(this.series.find((serie) => serie.id === id) || null);
+  }
+
+  addSerie(data: any): void {
+    const id = this.getLastId() + 1;
+    const serie: Serie = {
+      id,
+      name: data.name,
+      description: data.description,
+      firstReleaseDate: data.firstReleaseDate,
+      review: data.review,
+      seasonsNumber: data.seasonsNumber,
+    };
+    this.series.push(serie);
+    this.emitSerieSubject();
+  }
+
+  editSerie(data: any): void {
+    const index = this.series.findIndex((s) => {
+      return s.id === data.id;
+    });
+    if (index > -1) {
+      const id =  this.series[index].id;
+      const serie: Serie = {
+        id,
+        name: data.name,
+        description: data.description,
+        firstReleaseDate: data.firstReleaseDate,
+        review: data.review,
+        seasonsNumber: data.seasonsNumber,
+      };
+    }
+    this.emitSerieSubject();
+  }
+
+  deleteSerie(serie: Serie): void {
+    const index = this.series.findIndex((s) => {
+      return s.id === serie.id;
+    });
+    if (index > -1) {
+      this.series.splice(index, 1);
+    }
+
+    //@todo delete commentaires associés
+
+    this.emitSerieSubject();
+  }
+
+  getLastId(): number {
+    let lastId = 0;
+    this.series.forEach((serie) => {
+      if (lastId < serie.id) {
+        lastId = serie.id;
+      }
+    });
+    return lastId;
   }
 }

@@ -7,6 +7,6 @@ export class Serie {
   seasonsNumber: number;
   description: string;
   review: string;
-  photo: string;
+  photo?: string;
   comments?: Comment[];
 }

@@ -1,1 +1,21 @@
-<p>serie-edit works!</p>
+<form #serieForm="ngForm" (ngSubmit)="onSubmit(serieForm)" class="mt-4">
+  <h4 *ngIf="editMode === 'create'">Ajouter une série</h4>
+  <h4 *ngIf="editMode === 'edit'">Modifier une série</h4>
+  <div class="form-group">
+    <label for="name">Nom de la série</label>
+    <input class="form-control" id="name" name="name" [(ngModel)]="serie.name" required type="text">
+    <label for="seasonsNumber">Nombre de saison</label>
+    <input class="form-control" id="seasonsNumber" name="seasonsNumber" [(ngModel)]="serie.seasonsNumber" required type="number">
+    <label for="firstReleaseDate">Date premier épisode</label>
+    <input class="form-control" id="firstReleaseDate" name="firstReleaseDate" [(ngModel)]="serie.firstReleaseDate" required type="date">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" name="description" [(ngModel)]="serie.description" required rows="3"></textarea>
+    <label for="review">Review</label>
+    <textarea class="form-control" id="review" name="review" [(ngModel)]="serie.review" required rows="3"></textarea>
+  </div>
+  <button [disabled]="!serieForm.valid" class="btn btn-primary" type="submit">
+    <span *ngIf="editMode === 'create'">Ajouter</span>
+    <span *ngIf="editMode === 'edit'">Modifier</span>
+    la série
+  </button>
+</form>
