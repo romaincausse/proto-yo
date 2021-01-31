@@ -1,7 +1,10 @@
 export class Comment {
-  id: number;
-  date: string;
-  author: string;
-  content: string;
-  serieId: number;
+  constructor(
+    public id: number,
+    public date: string,
+    public author: string,
+    public content: string,
+    public serieId: number
+  ) {
+  }
 }
