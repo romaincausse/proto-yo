@@ -8,8 +8,10 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 import {SerieViewComponent} from './components/serie-view/serie-view.component';
 import {SerieEditComponent} from './components/serie-edit/serie-edit.component';
 import {CommentListComponent} from './components/comment-list/comment-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommentCreateComponent} from './components/comment-create/comment-create.component';
+import { SignInComponentComponent } from './components/sign-in-component/sign-in-component.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,13 @@ import {CommentCreateComponent} from './components/comment-create/comment-create
     SerieEditComponent,
     CommentListComponent,
     CommentCreateComponent,
+    SignInComponentComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
